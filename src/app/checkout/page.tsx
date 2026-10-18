@@ -177,7 +177,7 @@ export default function CheckoutPage() {
             <CheckCircle2 className="size-5" /> Bayar Sekarang
           </Button>
           <p className="mt-3 text-center text-[11px] text-zinc-500">
-            Transfer bank manual. Konfirmasi otomatis via admin.
+            Transfer bank manual — konfirmasi pembayaran dilakukan admin.
           </p>
           <Link href="/keranjang" className="mt-4 flex items-center justify-center gap-1.5 text-xs font-medium text-zinc-500 hover:text-brand">
             <ArrowLeft className="size-3" /> Kembali ke keranjang

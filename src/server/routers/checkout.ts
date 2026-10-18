@@ -47,7 +47,7 @@ const checkoutRouter = router({
       const order = await tx.order.create({
         data: {
           userId: ctx.session.id,
-          status: OrderStatus.PAID,
+          status: OrderStatus.PENDING_PAYMENT,
           totalAmount,
           shippingAddress: input,
           paymentMethod: "transfer",

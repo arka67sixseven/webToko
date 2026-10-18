@@ -50,8 +50,11 @@ const adminMiddleware = t.middleware(({ ctx, next }) => {
   return next({ ctx: { ...ctx, session: ctx.session } });
 });
 
-const authRateLimitMiddleware = t.middleware(({ ctx, next, path, type }) => {
-  if (type === "mutation" && path.includes("auth")) {
+const sensitiveRateLimitMiddleware = t.middleware(({ ctx, next, path, type }) => {
+  // Endpoint sensitif: auth (semua), plus checkout & review (anti-spam).
+  const isSensitiveMutation =
+    path.includes("auth") || path === "checkout.create" || path === "catalog.addReview";
+  if (type === "mutation" && isSensitiveMutation) {
     const key = `rl:${ctx.ip ?? "unknown"}:${path}`;
     const { allowed, retryAfterSec } = rateLimit(key, 8, 60_000);
     if (!allowed) {
@@ -64,5 +67,5 @@ const authRateLimitMiddleware = t.middleware(({ ctx, next, path, type }) => {
   return next({ ctx });
 });
 
-export const protectedProcedure = t.procedure.use(authRateLimitMiddleware).use(authMiddleware);
-export const adminProcedure = t.procedure.use(authRateLimitMiddleware).use(adminMiddleware);
+export const protectedProcedure = t.procedure.use(sensitiveRateLimitMiddleware).use(authMiddleware);
+export const adminProcedure = t.procedure.use(sensitiveRateLimitMiddleware).use(adminMiddleware);

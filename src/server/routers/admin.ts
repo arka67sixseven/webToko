@@ -15,6 +15,15 @@ const orderStatusSchema = z.object({
   status: z.enum(["PENDING_PAYMENT", "PAID", "SHIPPED", "COMPLETED", "CANCELLED"]),
 });
 
+/** Transisi status yang diizinkan — ditegakkan di server, UI hanya cerminan. */
+const ALLOWED_TRANSITIONS: Record<OrderStatus, OrderStatus[]> = {
+  PENDING_PAYMENT: [OrderStatus.PAID, OrderStatus.CANCELLED],
+  PAID: [OrderStatus.SHIPPED, OrderStatus.CANCELLED],
+  SHIPPED: [OrderStatus.COMPLETED],
+  COMPLETED: [],
+  CANCELLED: [],
+};
+
 const adminRouter = router({
   stats: adminProcedure.query(async () => {
     const [productCount, orderCount, userCount, revenueAgg, lowStock] = await Promise.all([
@@ -94,9 +103,38 @@ const adminRouter = router({
     }),
 
     updateStatus: adminProcedure.input(orderStatusSchema).mutation(async ({ input }) => {
-      return prisma.order.update({
-        where: { id: input.orderId },
-        data: { status: input.status },
+      return prisma.$transaction(async (tx) => {
+        const order = await tx.order.findUnique({
+          where: { id: input.orderId },
+          include: { items: true },
+        });
+        if (!order) {
+          throw new TRPCError({ code: "NOT_FOUND", message: "Pesanan tidak ditemukan" });
+        }
+
+        const next = input.status as OrderStatus;
+        if (next === order.status) return order;
+
+        if (!ALLOWED_TRANSITIONS[order.status].includes(next)) {
+          throw new TRPCError({
+            code: "BAD_REQUEST",
+            message: `Transisi status ${order.status} → ${next} tidak diizinkan`,
+          });
+        }
+
+        // Stok di-reserve saat checkout; kembalikan hanya ketika pesanan dibatalkan.
+        if (next === OrderStatus.CANCELLED) {
+          await Promise.all(
+            order.items.map((item) =>
+              tx.product.update({
+                where: { id: item.productId },
+                data: { stock: { increment: item.quantity } },
+              }),
+            ),
+          );
+        }
+
+        return tx.order.update({ where: { id: order.id }, data: { status: next } });
       });
     }),
   }),
