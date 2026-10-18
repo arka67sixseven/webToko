@@ -13,7 +13,15 @@ export type SessionUser = {
   role: Role;
 };
 
-const secret = () => new TextEncoder().encode(process.env.JWT_SECRET ?? "dev-insecure-secret");
+const jwtSecret = process.env.JWT_SECRET;
+
+if (process.env.NODE_ENV === "production" && (!jwtSecret || jwtSecret.length < 32)) {
+  throw new Error(
+    "JWT_SECRET wajib di-set dan minimal 32 karakter di production. Generate dengan: openssl rand -base64 48",
+  );
+}
+
+const secret = () => new TextEncoder().encode(jwtSecret ?? "dev-insecure-secret");
 
 function isSessionUser(payload: JWTPayload): payload is SessionUser & JWTPayload {
   return (
