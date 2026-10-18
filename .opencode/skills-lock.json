@@ -1,0 +1,327 @@
+{
+  "version": 1,
+  "skills": {
+    "nextjs-app-router-patterns": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "nextjs-app-router-patterns",
+      "path": "skills/nextjs-app-router-patterns",
+      "category": "framework",
+      "risk": "safe",
+      "source": "community",
+      "computedHash": "9f4b0a99c2fe6769f50dfeb1584ec699b1e10f3bf91e8d33a2f0ba65736fef44"
+    },
+    "react-best-practices": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "react-best-practices",
+      "path": "skills/react-best-practices",
+      "category": "web-development",
+      "risk": "safe",
+      "source": "community",
+      "computedHash": "cedb428ffa401736f1d8c39211237d6e6f101db4e3bc1980e70aeb1e479a55b0"
+    },
+    "tailwind-design-system": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "tailwind-design-system",
+      "path": "skills/tailwind-design-system",
+      "category": "web-development",
+      "risk": "safe",
+      "source": "community",
+      "computedHash": "698dcaf7c11d341f1068ec1721ee8deb3b33dfcf93ad56f94e7b07496462773b"
+    },
+    "radix-ui-design-system": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "radix-ui-design-system",
+      "path": "skills/radix-ui-design-system",
+      "category": "web-development",
+      "risk": "safe",
+      "source": "self",
+      "computedHash": "5bc9fdd3f8464b426cc751104b2d5dec68aae4b9f8b08c94dcc0db1a52f1bad0"
+    },
+    "design-taste-frontend": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "design-taste-frontend",
+      "path": "skills/design-taste-frontend",
+      "category": "frontend",
+      "risk": "safe",
+      "source": "community",
+      "computedHash": "ca3702f4b1fb4ea1900698415ecf7eda9cad5ace3a528383d2318c9a0f6deab6"
+    },
+    "anti-ui-slop": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "anti-ui-slop",
+      "path": "skills/anti-ui-slop",
+      "category": "frontend",
+      "risk": "safe",
+      "source": "https://github.com/uizze/uizze/tree/main/skills/anti-ui-slop",
+      "computedHash": "fd6593b494cde0ee095ccdfe0e10bff747ac0559622b44b5119bd0f1faea7ad9"
+    },
+    "senior-frontend": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "senior-frontend",
+      "path": "skills/senior-frontend",
+      "category": "web-development",
+      "risk": "safe",
+      "source": "https://github.com/alirezarezvani/claude-skills",
+      "computedHash": "d1cf596e21344fa4bda5d6ff713db79db508db81218f3d2725bde5f8706ee298"
+    },
+    "landing-page-generator": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "landing-page-generator",
+      "path": "skills/landing-page-generator",
+      "category": "front-end",
+      "risk": "safe",
+      "source": "community",
+      "computedHash": "e1a7278167c19789376e466a3a13de1832f89d50332f2373dcbf43e01c4f8761"
+    },
+    "ckw-design": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "ckw-design",
+      "path": "skills/ckw-design",
+      "category": "web-development",
+      "risk": "safe",
+      "source": "community",
+      "computedHash": "99f839aab34be57b47d2b803c18344097ef420194e42b8ce9001d33796448ea1"
+    },
+    "api-endpoint-builder": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "api-endpoint-builder",
+      "path": "skills/api-endpoint-builder",
+      "category": "development",
+      "risk": "safe",
+      "source": "community",
+      "computedHash": "a1455f2367124fac73ed2643c6f0764d5242097c1e0541dd0c18a1dda8aa6790"
+    },
+    "trpc-fullstack": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "trpc-fullstack",
+      "path": "skills/trpc-fullstack",
+      "category": "framework",
+      "risk": "none",
+      "source": "community",
+      "computedHash": "0c7bd622191ecb38412a5f580dc5cb5fbeaef5ffb95ad4568fc6fac79bbca792"
+    },
+    "tanstack-query-expert": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "tanstack-query-expert",
+      "path": "skills/tanstack-query-expert",
+      "category": "framework",
+      "risk": "safe",
+      "source": "community",
+      "computedHash": "9858d42e472fef0708b220915122b52c8b9c97953e416883dec02ff4a246f1ee"
+    },
+    "frontend-api-integration-patterns": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "frontend-api-integration-patterns",
+      "path": "skills/frontend-api-integration-patterns",
+      "category": "frontend",
+      "risk": "safe",
+      "source": "community",
+      "computedHash": "bdcc456c14e26fd3d6210be9caaad45a8176ab9d33b9b43e22103985f1285934"
+    },
+    "zod-validation-expert": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "zod-validation-expert",
+      "path": "skills/zod-validation-expert",
+      "category": "framework",
+      "risk": "safe",
+      "source": "community",
+      "computedHash": "f3445af07981d0673a36111db2d08a213005dbe2b48e097e4a2677039b22bab9"
+    },
+    "postgres-best-practices": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "postgres-best-practices",
+      "path": "skills/postgres-best-practices",
+      "category": "database",
+      "risk": "safe",
+      "source": "community",
+      "computedHash": "e56df62f39fedc6f45dc64ea0cbeaf381e7215440ee34d53222d9fe07cd4f3b7"
+    },
+    "nextjs-seo-indexing": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "nextjs-seo-indexing",
+      "path": "skills/nextjs-seo-indexing",
+      "category": "seo",
+      "risk": "safe",
+      "source": "self",
+      "computedHash": "1442e8ded9380c46b82bb925a37d1e44b5fc701b10f24b2cf8053480fd8464d4"
+    },
+    "seo-audit": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "seo-audit",
+      "path": "skills/seo-audit",
+      "category": "content",
+      "risk": "safe",
+      "source": "community",
+      "computedHash": "5ced0421610bc1f352c4f239e0f0fce07450baf51cb4a131b12564a8e6080b69"
+    },
+    "web-security-testing": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "web-security-testing",
+      "path": "skills/web-security-testing",
+      "category": "granular-workflow-bundle",
+      "risk": "safe",
+      "source": "personal",
+      "computedHash": "b4ff6c03b314c2a3631136364083423f7f0b685a4f85a182e216c61736d57223"
+    },
+    "client-secret-exposure-audit": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "client-secret-exposure-audit",
+      "path": "skills/client-secret-exposure-audit",
+      "category": "security",
+      "risk": "safe",
+      "source": "self",
+      "computedHash": "a40e4d429af6ae3dcf7791f25cc21174d3b8ba2388973e1b4561da24ff2ccc3e"
+    },
+    "marketplace-rbac-audit": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "marketplace-rbac-audit",
+      "path": "skills/marketplace-rbac-audit",
+      "category": "security",
+      "risk": "safe",
+      "source": "self",
+      "computedHash": "ab5bdbe424e9ed890ef35866f3e0cdb9ebf2178a48116133ec7b963fd3f8fd44"
+    },
+    "code-audit": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "code-audit",
+      "path": "skills/code-audit",
+      "category": "development",
+      "risk": "safe",
+      "source": "https://github.com/zhaoxuya520/reverse-skill",
+      "computedHash": "317efa3700a35aaabc53eaa6b7fd5bb09b7f681c08c03d882b29c3af90807f7a"
+    },
+    "logic-lens": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "logic-lens",
+      "path": "skills/logic-lens",
+      "category": "development",
+      "risk": "safe",
+      "source": "community",
+      "computedHash": "c1a2f172684c04ecc5fece2bd3b5c0301fd2361b4cb9677c9deee1a5d9752c8b"
+    },
+    "gdpr-data-handling": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "gdpr-data-handling",
+      "path": "skills/gdpr-data-handling",
+      "category": "security",
+      "risk": "safe",
+      "source": "community",
+      "computedHash": "b718eb69c6f9f9b28edbc35b11e817acb4d7d50cf107d33d08887c0576d13001"
+    },
+    "pagespeed-enhancer": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "pagespeed-enhancer",
+      "path": "skills/pagespeed-enhancer",
+      "category": "uncategorized",
+      "risk": "safe",
+      "source": "personal",
+      "computedHash": "ebd51fc436bdb5bf4f078b2eeaf1c73a007afd81eb7e90a8626be722dcca53c6"
+    },
+    "vercel-deployment": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "vercel-deployment",
+      "path": "skills/vercel-deployment",
+      "category": "uncategorized",
+      "risk": "safe",
+      "source": "vibeship-spawner-skills (Apache 2.0)",
+      "computedHash": "6233cef2861a9240959b61f723f97024bbf3cd19a773c50971ec22b64b872d4e"
+    },
+    "vercel-optimize": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "vercel-optimize",
+      "path": "skills/vercel-optimize",
+      "category": "uncategorized",
+      "risk": "safe",
+      "source": "https://github.com/vercel-labs/agent-skills",
+      "computedHash": "52bac627a5e4d3dd7bc9a4bcf3506dcdb49737010c0e467710ac9479455b071f"
+    },
+    "k6-load-testing": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "k6-load-testing",
+      "path": "skills/k6-load-testing",
+      "category": "testing",
+      "risk": "safe",
+      "source": "community",
+      "computedHash": "a1c785261ade7f9e213e8196b33c48adc8f354cfd817cb53a32d3f85682cc17d"
+    },
+    "pre-ship-gate": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "pre-ship-gate",
+      "path": "skills/pre-ship-gate",
+      "category": "quality",
+      "risk": "safe",
+      "source": "community",
+      "computedHash": "e924748964afafb928be6a486647f7e602e70904b25635dbb517cc505accb1f7"
+    },
+    "skill-scanner": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "skill-scanner",
+      "path": "skills/skill-scanner",
+      "category": "meta",
+      "risk": "safe",
+      "source": "community",
+      "computedHash": "6d7e0617cb700b590fd6b1edffa325595774f4ca23610ef106458d387c4b967b"
+    },
+    "e2e-testing": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "e2e-testing",
+      "path": "skills/e2e-testing",
+      "category": "granular-workflow-bundle",
+      "risk": "safe",
+      "source": "personal",
+      "computedHash": "f4d41b1e9eda8b568818d28e860289633fbccc818e07f3a97615a73e81a0a77f"
+    },
+    "e2e-testing-patterns": {
+      "sourceType": "upstream",
+      "upstream": "francostino-opencode-skills-collection",
+      "id": "e2e-testing-patterns",
+      "path": "skills/e2e-testing-patterns",
+      "category": "test-automation",
+      "risk": "safe",
+      "source": "community",
+      "computedHash": "10071a931d49ae7aa3822b1adf9682d097147a0c47d088698bc42879cab1bd71"
+    },
+    "webapp-testing": {
+      "sourceType": "local",
+      "sourceRoot": "/home/cortez-doty/.config/opencode/skills-registry/upstreams/francostino/repo/bundled-skills",
+      "path": "webapp-testing",
+      "computedHash": "1675015ad75e37c638e056210bced71b9889a3192a01f5fc239494b944397fd4"
+    },
+    "frontend-design": {
+      "sourceType": "local",
+      "sourceRoot": "/home/cortez-doty/.config/opencode/skills",
+      "path": "frontend-design",
+      "computedHash": "e5c0d43de8e73774e11bb8ddff82a8f712f77e4289c7438f3005dd4c7bc09734"
+    }
+  }
+}

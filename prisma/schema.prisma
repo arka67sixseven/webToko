@@ -1,0 +1,194 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum Origin {
+  LOCAL
+  IMPORTED
+}
+
+enum OrderStatus {
+  PENDING_PAYMENT
+  PAID
+  SHIPPED
+  COMPLETED
+  CANCELLED
+}
+
+model User {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  passwordHash String
+  name         String
+  role         Role      @default(USER)
+  phone        String?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  cartItems    CartItem[]
+  reviews      Review[]
+  orders       Order[]
+  addresses    Address[]
+  wishlists    Wishlist[]
+
+  @@index([email])
+}
+
+model Category {
+  id          String     @id @default(cuid())
+  name        String
+  slug        String     @unique
+  description String?
+  parentId    String?
+  parent      Category?  @relation("CategoryTree", fields: [parentId], references: [id])
+  children    Category[] @relation("CategoryTree")
+  products    Product[]
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  @@index([slug])
+  @@index([parentId])
+}
+
+model Product {
+  id             String   @id @default(cuid())
+  name           String
+  slug           String   @unique
+  description    String?
+  brand          String?
+  price          Int      // cents / rupiah minor units
+  currency       String   @default("IDR")
+  stock          Int      @default(0)
+  specs          Json?
+  origin         Origin   @default(LOCAL)
+  images         String[]
+  featured       Boolean  @default(false)
+  isNew          Boolean  @default(false) @map("is_new")
+  discountPercent Int?    @default(0) @map("discount_percent")
+  categoryId     String   @map("category_id")
+  category       Category @relation(fields: [categoryId], references: [id])
+  views          Int      @default(0)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  reviews        Review[]
+  cartItems      CartItem[]
+  orderItems     OrderItem[]
+  wishlists      Wishlist[]
+
+  @@index([slug])
+  @@index([categoryId])
+  @@index([brand])
+  @@index([price])
+  @@index([createdAt])
+  @@index([featured, isNew])
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  userId    String   @map("user_id")
+  user      User     @relation(fields: [userId], references: [id])
+  productId String   @map("product_id")
+  product   Product  @relation(fields: [productId], references: [id])
+  rating    Int
+  title     String?
+  body      String?
+  approved  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, productId])
+  @@index([productId])
+  @@index([rating])
+}
+
+model CartItem {
+  id        String   @id @default(cuid())
+  userId    String   @map("user_id")
+  user      User     @relation(fields: [userId], references: [id])
+  productId String   @map("product_id")
+  product   Product  @relation(fields: [productId], references: [id])
+  quantity  Int      @default(1)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, productId])
+  @@index([userId])
+  @@index([productId])
+}
+
+model Order {
+  id              String      @id @default(cuid())
+  userId          String      @map("user_id")
+  user            User        @relation(fields: [userId], references: [id])
+  status          OrderStatus @default(PENDING_PAYMENT)
+  totalAmount     Int         @map("total_amount")
+  currency        String      @default("IDR")
+  shippingAddress Json        @map("shipping_address")
+  paymentMethod   String?     @map("payment_method")
+  notes           String?
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  items           OrderItem[]
+
+  @@index([userId])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model OrderItem {
+  id           String  @id @default(cuid())
+  orderId      String  @map("order_id")
+  order        Order   @relation(fields: [orderId], references: [id])
+  productId    String  @map("product_id")
+  product      Product @relation(fields: [productId], references: [id])
+  productName  String  @map("product_name")
+  productPrice Int     @map("product_price")
+  quantity     Int
+
+  @@index([orderId])
+  @@index([productId])
+}
+
+model Address {
+  id           String  @id @default(cuid())
+  userId       String  @map("user_id")
+  user         User    @relation(fields: [userId], references: [id])
+  label        String?
+  recipient    String
+  phone        String?
+  addressLine1 String  @map("address_line1")
+  addressLine2 String? @map("address_line2")
+  city         String
+  province     String
+  postalCode   String  @map("postal_code")
+  country      String  @default("ID")
+  isDefault    Boolean @default(false) @map("is_default")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([userId])
+}
+
+model Wishlist {
+  id        String   @id @default(cuid())
+  userId    String   @map("user_id")
+  user      User     @relation(fields: [userId], references: [id])
+  productId String   @map("product_id")
+  product   Product  @relation(fields: [productId], references: [id])
+  createdAt DateTime @default(now())
+
+  @@unique([userId, productId])
+  @@index([userId])
+}
