@@ -27,6 +27,7 @@ File kunci: `src/server/trpc/trpc.ts` (procedure) · `src/server/auth.ts` (sesi)
 8. **Rate limit** — endpoint sensitif (auth, checkout, review, ubah password) lewat `rateLimit()` dengan key unik per ip + aksi.
 9. **Error handling** — pesan error auth tidak membocorkan info akun (pakai pesan generik). Detail error hanya di-log server-side, bukan dikirim ke client.
 10. **Logging** — dilarang `console.log` berisi password, token, atau isi order.
+11. **Pre-commit & CI** — hook gitleaks aktif (via `git config core.hooksPath scripts/hooks`); jangan `git commit --no-verify` kecuali sadar. Setiap push harus melewati CI (`.github/workflows/ci.yml`) dan berakhir hijau.
 
 ## Workflow 4-pass setiap fitur selesai
 
@@ -48,5 +49,6 @@ Prompt audit siap pakai:
 - [ ] Zod schema + procedure type + ownership check benar
 - [ ] Pass 3 (dan pass 4 untuk fitur sensitif) dijalankan di sesi baru
 - [ ] Tidak ada secret / data sensitif ikut di-commit
+- [ ] CI hijau (setelah repo punya remote GitHub)
 
 <!-- SECURITY-PROTOCOL:END -->

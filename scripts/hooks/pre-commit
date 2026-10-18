@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# webToko — pre-commit hook: cegah secret bocor masuk commit.
+# Terpasang via: git config core.hooksPath scripts/hooks
+set -uo pipefail
+
+if ! command -v gitleaks >/dev/null 2>&1; then
+  echo "⚠️  gitleaks tidak ditemukan — scan secret dilewati (lihat AGENTS.md)." >&2
+  exit 0
+fi
+
+if ! gitleaks git --staged --redact --no-banner --log-level warn >/dev/null 2>&1; then
+  echo "" >&2
+  echo "❌ Commit diblokir: gitleaks menemukan potensi secret di staged changes:" >&2
+  gitleaks git --staged --redact --no-banner -v >&2 || true
+  echo "" >&2
+  echo "   Hapus/perbaiki dulu, atau bypass sadar dengan: git commit --no-verify" >&2
+  exit 1
+fi
